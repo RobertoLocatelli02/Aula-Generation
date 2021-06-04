@@ -19,7 +19,19 @@ export class TemaService {
     return this.http.get<Categoria[]>('https://projetoblogpessoalcatalogo.herokuapp.com/tema', this.token)
   }
 
+  getByIdTema(id: number): Observable<Categoria> {
+    return this.http.get<Categoria>(`https://projetoblogpessoalcatalogo.herokuapp.com/tema/${id}`, this.token)
+  }
+
   postTema(tema: Categoria): Observable<Categoria> {
     return this.http.post<Categoria>('https://projetoblogpessoalcatalogo.herokuapp.com/tema', tema, this.token)
+  }
+
+  putTema(tema: Categoria): Observable<Categoria> {
+    return this.http.put<Categoria>('https://projetoblogpessoalcatalogo.herokuapp.com/tema', tema, this.token)
+  }
+
+  deleteTema(id: number) {
+    return this.http.delete(`https://projetoblogpessoalcatalogo.herokuapp.com/tema/${id}`, this.token)
   }
 }
