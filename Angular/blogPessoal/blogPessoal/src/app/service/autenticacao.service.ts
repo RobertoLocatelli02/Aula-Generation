@@ -20,6 +20,10 @@ export class AutenticacaoService {
     return this.http.post<Usuario>('https://projetoblogpessoalcatalogo.herokuapp.com/usuarios/cadastrar', user)
   }
 
+  getByIdUser(id: number): Observable<Usuario> {
+    return this.http.get<Usuario>(`https://projetoblogpessoalcatalogo.herokuapp.com/usuarios/id/${id}`)
+  }
+
   logado() {
     let ok: boolean = false
 
